@@ -17,6 +17,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var scan = require('./routes/scan');
+var images = require('./routes/images');
 var app = express();
 
 app.use(session({
@@ -36,6 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/static', express.static(__dirname + '/node_modules/bootstrap/dist'));
+app.use('/static2', express.static(__dirname + '/node_modules/jquery/dist'));
 
 var f='/Users/joe/Pictures/Photos\ Library.photoslibrary/Masters';
 
@@ -47,6 +49,7 @@ app.use('/images', express.static('/Users/joe/Pictures/Photos Library.photoslibr
 app.use('/', routes);
 app.use('/users', users);
 app.use('/scan', scan);
+app.use('/image', images);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
