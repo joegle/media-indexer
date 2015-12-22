@@ -28,6 +28,8 @@ app.use(session({
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.locals.pretty = true;
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -37,14 +39,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/static', express.static(__dirname + '/node_modules/bootstrap/dist'));
-app.use('/static2', express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/static/jquery', express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/static/mousetrap', express.static(__dirname + '/node_modules/mousetrap/'));
 
 var f='/Users/joe/Pictures/Photos\ Library.photoslibrary/Masters';
 
 app.use('/images', serveIndex(f, {'icons': true}))
-app.use('/images', express.static('/Users/joe/Pictures/Photos Library.photoslibrary/Masters'));
-
-
+app.use('/images', express.static(f));
 
 app.use('/', routes);
 app.use('/users', users);
