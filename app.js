@@ -1,6 +1,9 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
+var serveIndex = require('serve-index')
+var serveStatic = require('serve-static')
+
 var logger = require('morgan');
 
 var db = require('./redisConnection')
@@ -32,6 +35,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(__dirname + '/node_modules/bootstrap/dist'));
+
+var f='/Users/joe/Pictures/Photos\ Library.photoslibrary/Masters';
+
+app.use('/images', serveIndex(f, {'icons': true}))
+app.use('/images', express.static('/Users/joe/Pictures/Photos Library.photoslibrary/Masters'));
+
+
 
 app.use('/', routes);
 app.use('/users', users);
