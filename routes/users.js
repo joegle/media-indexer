@@ -12,8 +12,10 @@ router.get('/', function(req, res, next) {
 	res.write('<p>views: ' + sess.views + '</p>')
 	res.write('<p>redisin: ' + (db.get("test")) + '</p>')
 	db.get("test",function(error, reply){
+	    console.log(error)
 	    res.write(reply);
-	    console.log(reply)
+		console.log(reply)
+
 	})
 	res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
 	res.end()

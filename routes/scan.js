@@ -6,9 +6,12 @@ var db = require("../redisConnection");
 router.get('/', function(req, res, next) {
     var sess = req.session
     var folder = '/Users/joe/Pictures/Photos\ Library.photoslibrary/Masters/';
+    //var folder = '/Users/joe/Documents/images/';
+
     var execFile = require('child_process').execFile;
-    execFile('find', [ "." , "-type", "f" ], {cwd:folder}, function(err, stdout, stderr) {
-	var file_list = stdout.split('\n');
+    //execFile('find', [ "." , "-type", "f", "-name", "*GIF" ], {cwd:folder}, function(err, stdout, stderr) {
+    execFile('find', [ "." , "-type", "f", "-name", "*" ], {cwd:folder}, function(err, stdout, stderr) {
+    	var file_list = stdout.split('\n');
 	console.log(file_list);
 	var count=0;
 	file_list.forEach(function(element, index, array){

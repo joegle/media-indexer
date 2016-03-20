@@ -2,11 +2,15 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/static/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/cssgram.min.css')
     script(src='/static/jquery/jquery.js')
     script(src='/static/mousetrap/mousetrap.js')
+    script(src='/javascripts/typed.js')
     script(src='/javascripts/images.js')
     
   body
+    span#response
     block content
-    img#pic
+  

@@ -7,7 +7,7 @@ var serveStatic = require('serve-static')
 var logger = require('morgan');
 
 var db = require('./redisConnection')
-
+var drafts = require('./draftsBlob');
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 
@@ -16,8 +16,13 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var drafts = require('./routes/draft');
 var scan = require('./routes/scan');
+var text = require('./routes/text');
+var scanNotes = require('./routes/scan-notes');
 var images = require('./routes/images');
+var notes = require('./routes/notes');
+
 var app = express();
 
 app.use(session({
@@ -43,14 +48,31 @@ app.use('/static/jquery', express.static(__dirname + '/node_modules/jquery/dist'
 app.use('/static/mousetrap', express.static(__dirname + '/node_modules/mousetrap/'));
 
 var f='/Users/joe/Pictures/Photos\ Library.photoslibrary/Masters';
+//var f = '/Users/joe/Documents/images';
 
 app.use('/images', serveIndex(f, {'icons': true}))
 app.use('/images', express.static(f));
 
+
+var noteFolder = '/Users/joe/Documents/notes';
+app.use('/notes', serveIndex(noteFolder, {'icons': true}));
+app.use('/notes', express.static(noteFolder));
+
+
+var archivesFolder = './public/offline';
+app.use('/offline', serveIndex(archivesFolder, {'icons': true}));
+app.use('/offline', express.static("./public/offline"));
+	
+var test = require("./routes/test");
 app.use('/', routes);
+app.use('/test', test);
+app.use('/draft', drafts);
 app.use('/users', users);
 app.use('/scan', scan);
+app.use('/text', text);
+app.use('/scan-notes', scanNotes);
 app.use('/image', images);
+app.use('/note', notes)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
