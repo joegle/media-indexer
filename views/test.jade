@@ -1,0 +1,24 @@
+extends bootstrap-layout
+
+block content
+  div.row
+    div.col-md-6
+      h1= title
+      p Welcome to #{title}
+    div.col-md-6
+      h2 Second stuff
+  div.row
+    div.col-md-12
+      span#response
+  div.row
+    div.col-md-12
+      br
+      input#cmd.form-control(type='text', placeholder='')
+  div.row
+    div.col-md-6
+      img#pic(width='100%')
+    div.col-md-6
+      pre#note
+
+  
+  
