@@ -22,6 +22,7 @@ var text = require('./routes/text');
 var scanNotes = require('./routes/scan-notes');
 var images = require('./routes/images');
 var notes = require('./routes/notes');
+var bookmark = require('./routes/bookmark');
 
 var app = express();
 
@@ -59,9 +60,9 @@ app.use('/notes', serveIndex(noteFolder, {'icons': true}));
 app.use('/notes', express.static(noteFolder));
 
 
-var archivesFolder = './public/offline';
+var archivesFolder = './public/total';
 app.use('/offline', serveIndex(archivesFolder, {'icons': true}));
-app.use('/offline', express.static("./public/offline"));
+app.use('/offline', express.static(archivesFolder));
 	
 var test = require("./routes/test");
 app.use('/', routes);
@@ -73,6 +74,7 @@ app.use('/text', text);
 app.use('/scan-notes', scanNotes);
 app.use('/image', images);
 app.use('/note', notes)
+app.use('/bookmark', bookmark);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
