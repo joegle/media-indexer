@@ -10,4 +10,8 @@ router.get('/dc',function(req, res, next){
     res.render('notes', {title: 'dc'});
 });
 
+router.get('/nv', function(req, res, next){
+    res.render('nv',{title: 'nv'});
+});
+
 module.exports = router;

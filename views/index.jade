@@ -3,6 +3,15 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  ul
+    li
+      a(href="/scan/clear") clear
+    li
+      a(href="/scan") scan
+    li
+      a(href="/images/") images/ 
+    li
+      a(href="/folder") folder/
   figure.toaster
     img#pic
   

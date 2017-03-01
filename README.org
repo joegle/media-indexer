@@ -1,0 +1,13 @@
+Images
+
+Express server for media management
+
+* Todo
+  + [ ] Remove non image parts
+  + [ ] How to add ssl certs
+
+* Set up
+  + Mount directories in mount/
+    : cd mount/
+    : ln -s /Users/joe/images/ .
+  

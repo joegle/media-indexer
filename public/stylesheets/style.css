@@ -12,8 +12,8 @@ figure{
 }
 
 #pic{
-    width: 100%;
-    display: block;
+    height: 400px;
+    /*display: block;*/
     -webkit-filter: blur(0px);
 }
 
