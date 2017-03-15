@@ -1,3 +1,4 @@
+folder = 'Masters';
 $( document ).ready(function() {
 
     var cmd = Mousetrap(document.querySelector('#cmd'));
@@ -8,7 +9,7 @@ $( document ).ready(function() {
 
 
 function next(){
-    $.get("/image",{ mount: "Masters"  }, function(data){
+    $.get("/image",{ mount: folder  }, function(data){
 	$("figure>#pic").attr("src", data.filename);
     });
 }
