@@ -1,4 +1,4 @@
-folder = 'Masters';
+folder = 'test';
 $( document ).ready(function() {
 
     var cmd = Mousetrap(document.querySelector('#cmd'));
