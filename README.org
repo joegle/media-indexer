@@ -22,5 +22,9 @@ Express server for media management
      : ./bin/www
 
 * Rights
-  + Sample images found at https://pixabay.com/
-    + "Images and Videos on Pixabay are released under Creative Commons CC0" 
+  + Copyright (c) 2017 Joseph Wright <joseph.wright@joegle.com>
+    + All rights reserved
+    + Send me a message if you want me to add an opensource license
+  + Sample images in mount/test/ found at https://pixabay.com/
+    + "Images and Videos on Pixabay are released under Creative Commons CC0"
+
