@@ -5,9 +5,22 @@ Express server for media management
 * Todo
   + [ ] Remove non image parts
   + [ ] How to add ssl certs
+  + [ ] optional SSL
+  + [ ] redis server reconnect 
 
 * Set up
-  + Mount directories in mount/
-    : cd mount/
-    : ln -s /Users/joe/images/ .
-  
+  1. Mount directories to search in mount/
+     : cd mount/
+     : ln -s /Users/joe/images/ .
+  2. Install and start Redis on localhost
+     : redis-server 
+  3. Install node packages
+     : npm install
+  4. Create SSL certs 
+     : make ssl
+  5. Start  and visit https://localhost:3000/
+     : ./bin/www
+
+* Rights
+  + Sample images found at https://pixabay.com/
+    + "Images and Videos on Pixabay are released under Creative Commons CC0" 
