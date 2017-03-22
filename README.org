@@ -1,12 +1,13 @@
-Images
+media-indexer
 
 Express server for media management
 
 * Todo
-  + [ ] Remove non image parts
+  + [X] Remove non image parts
   + [ ] How to add ssl certs
-  + [ ] optional SSL
-  + [ ] redis server reconnect 
+  + [ ] make SSL optional
+  + [ ] redis server reconnect
+  + [ ] test install
 
 * Set up
   1. Mount directories to search in mount/
