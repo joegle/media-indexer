@@ -1,17 +1,23 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Media-indexer
+  p
+    tt joseph.wright@joegle.com 
+    a(href="https://github.com/joegle/media-indexer") - joegle/media-indexer
   ul
     li
-      a(href="/scan/clear") clear
+      a(href="/scan/test") scan the test folder mount (then return here)
     li
-      a(href="/scan") scan
+      a(href="/scan") view available mounts to scan 
     li
-      a(href="/images/") images/ 
+      a(href="/scan/clear") clear the 
+    li
+      a(href="/images/") images/ - static server
     li
       a(href="/folder") folder/
+      
+  p Press 'j' to cycle through images
   figure.toaster
     img#pic
   
